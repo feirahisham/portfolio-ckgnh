@@ -30,14 +30,14 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a
-                class="nav-link active"
+                class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
                 aria-current="page"
                 href="{% url 'home' %}"
                 >Main</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+              <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}">Profile</a>
             </li>
             </li>
             <li class="nav-item dropdown">
@@ -45,8 +45,8 @@
                 Achievements
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'achievements_schools' %}">Schools</a></li>
-                <li><a class="dropdown-item" href="{% url 'achievements_students' %}">Students</a></li>
+                <li><a class="dropdown-item {% if request.resolver_match.url_name == 'achievements_schools' %}active{% endif %}" href="{% url 'achievements_schools' %}">Schools</a></li>
+                <li><a class="dropdown-item {% if request.resolver_match.url_name == 'achievements_students' %}active{% endif %}" href="{% url 'achievements_students' %}">Students</a></li>
               </ul>
             </li>
             <li class="nav-item">

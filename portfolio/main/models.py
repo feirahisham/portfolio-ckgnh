@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Profile(models.Model)
+class Profile(models.Model):
     display_name = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
     profile_picture = models.ImageField(upload_to='/data/images/profile_pics/', blank=True, null=True)

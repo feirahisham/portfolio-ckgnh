@@ -7,10 +7,9 @@ def home(request):
 
 def profile(request):
     profile = Profile.objects.first()
-    sections = ProfileSection.objects.prefetch_related('fields').all()
+    sections = ProfileSection.objects.prefetch_related('sections', 'fields').first()
     return render(request, 'main/profile.html', {
         'profile': profile
-        , 'sections': sections
     })
 
 def workshops(request):

@@ -1,13 +1,12 @@
 from django.shortcuts import render
-from .models import Profile, ProfileSection
+from .models import Profile
 
 # Create your views here.
 def home(request):
     return render(request, 'main/home.html')
 
 def profile(request):
-    profile = Profile.objects.first()
-    sections = ProfileSection.objects.prefetch_related('sections', 'fields').first()
+    profile = Profile.objects.prefetch_related('sections', 'fields').first()
     return render(request, 'main/profile.html', {
         'profile': profile
     })

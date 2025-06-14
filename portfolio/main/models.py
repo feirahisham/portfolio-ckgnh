@@ -4,7 +4,7 @@ from django.db import models
 class Profile(models.Model):
     display_name = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
-    profile_picture = models.ImageField(upload_to='data/images/profile_pics/', blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='images/profile_pics/', blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

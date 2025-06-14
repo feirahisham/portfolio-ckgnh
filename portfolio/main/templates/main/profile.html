@@ -4,4 +4,29 @@
 
 {% block content %}
   <h1>My Passion</h1>
+  <hr>
+  <div class="text-center">
+    {% if profile.profile_picture %}
+      <img src="{{ profile.profile_picture.url }}" class="img-thumbnail mb-3" width="150" alt="Profile Picture">
+    {% endif %}
+    <h2>{{ profile.name }}</h2>
+    <p>{{ profile.description }}</p>
+  </div>
+
+  <hr>
+
+  {% for section in sections %}
+    <div class="mb5">
+      <h2>{{ section.title }}</h2>
+      <p>{{ section.description }}</p>
+      <ul class="list-group">
+        {% for field in section.fields.all %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <strong>{{ field.label }}</strong>
+            <span>{{ field.value }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
 {% endblock %}
